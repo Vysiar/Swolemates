@@ -1,10 +1,21 @@
 package com.example.swolemates
 
+
+import android.content.res.ColorStateList
+import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import androidx.core.view.children
+import androidx.core.view.get
+import androidx.fragment.app.Fragment
+import com.example.swolemates.databinding.ActivityMainBinding
+import com.example.swolemates.databinding.FragmentProfileEditorBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +31,9 @@ class ProfileEditor : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var binding: FragmentProfileEditorBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +41,13 @@ class ProfileEditor : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        binding = FragmentProfileEditorBinding.inflate(layoutInflater)
+//        val view = binding.root
+
+
+
+
+
     }
 
     override fun onCreateView(
