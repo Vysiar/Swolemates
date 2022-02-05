@@ -125,6 +125,7 @@
         app:layout_constraintTop_toBottomOf="@id/textInputLayout3"/>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 =======
@@ -133,3 +134,7 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> data invalid errors xd
+=======
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+>>>>>>> merge profile editor yuh
