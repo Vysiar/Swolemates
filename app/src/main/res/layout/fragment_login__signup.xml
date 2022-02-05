@@ -8,18 +8,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#B5D9C3"
+        >
 
         <TextView
             android:id="@+id/email_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="57dp"
             android:text="Email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.095"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
             android:id="@+id/email_enter"
@@ -64,7 +66,7 @@
         <Button
             android:id="@+id/signup_button"
             android:layout_width="287dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:layout_marginStart="62dp"
             android:layout_marginTop="95dp"
             android:layout_marginEnd="62dp"
@@ -72,6 +74,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_enter" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="259dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="76dp"
+            android:src="@drawable/Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
