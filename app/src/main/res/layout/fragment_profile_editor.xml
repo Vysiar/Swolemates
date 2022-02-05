@@ -76,6 +76,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> profile editor layout
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="360dp"
@@ -110,9 +113,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayout3"/>
 
+<<<<<<< HEAD
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 =======
+=======
+>>>>>>> profile editor layout
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> data invalid errors xd
