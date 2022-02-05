@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import com.example.swolemates.databinding.SignupFragmentBinding
-
 import android.view.ViewGroup
 
 // TODO: Rename parameter arguments, choose names that match
@@ -13,28 +11,30 @@ import android.view.ViewGroup
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class Login_Signup : Fragment() {
-    /**
-     * A simple [Fragment] subclass.
-     * Use the [Login_Signup.newInstance] factory method to
-     * create an instance of this fragment.
-     */
+/**
+ * A simple [Fragment] subclass.
+ * Use the [WelcomePage.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class WelcomePage : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
-    private var _binding: Login_SignupBinding ? =null
-    private val binding get() =_binding!!
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        _binding = Login_SignupBinding.inflate(inflater,container, false)
-        val v = binding.root
-
-
-        return v
+        return inflater.inflate(R.layout.fragment_welcome_page, container, false)
     }
 
     companion object {
@@ -44,12 +44,12 @@ class Login_Signup : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Login_Signup.
+         * @return A new instance of fragment WelcomePage.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Login_Signup().apply {
+            WelcomePage().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
