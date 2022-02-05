@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login_Signup">
+
+    <fragment
+        android:id="@+id/login_Signup"
+        android:name="com.example.swolemates.Login_Signup"
+        android:label="fragment_login__signup"
+        tools:layout="@layout/fragment_login__signup" >
+        <action
+            android:id="@+id/action_login_Signup_to_profileEditor"
+            app:destination="@id/profileEditor" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileEditor"
+        android:name="com.example.swolemates.ProfileEditor"
+        android:label="fragment_profile_editor"
+        tools:layout="@layout/fragment_profile_editor" >
+        <action
+            android:id="@+id/action_profileEditor_to_preferences"
+            app:destination="@id/preferences" />
+    </fragment>
+    <fragment
+        android:id="@+id/preferences"
+        android:name="com.example.swolemates.Preferences"
+        android:label="fragment_preferences"
+        tools:layout="@layout/fragment_preferences" >
+        <action
+            android:id="@+id/action_preferences_to_matching"
+            app:destination="@id/matching" />
+        <action
+            android:id="@+id/action_preferences_to_profileScreen"
+            app:destination="@id/profileScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/matching"
+        android:name="com.example.swolemates.Matching"
+        android:label="fragment_matching"
+        tools:layout="@layout/fragment_matching" />
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.example.swolemates.ProfileScreen"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen" />
+</navigation>
