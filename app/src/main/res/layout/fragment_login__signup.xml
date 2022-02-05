@@ -82,7 +82,7 @@
             android:layout_marginStart="76dp"
             android:layout_marginTop="33dp"
             android:layout_marginEnd="76dp"
-            android:src="@drawable/Title"
+            android:src="@drawable/title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
