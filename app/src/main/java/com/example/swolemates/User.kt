@@ -1,7 +1,8 @@
 package com.example.swolemates
 
 // General initialization of the data class, will need to create more constructors if needed
-data class User(var userId: Int, var name: String, var age: Int, var location: String) {
+data class User(var userId: Int, var name: String, var age: Int, var location: String,
+                var gender: Gender) {
 
     // Sets
     var likeSet = mutableSetOf<Int>()
@@ -9,9 +10,6 @@ data class User(var userId: Int, var name: String, var age: Int, var location: S
 
     // Lists
     var matches = arrayListOf<Int>()
-
-    // Enumerators
-    // wait for franco
 
     // Extra Descriptors
     var bio = ""
