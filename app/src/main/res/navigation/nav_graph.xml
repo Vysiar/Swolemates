@@ -30,7 +30,11 @@
         android:id="@+id/matching"
         android:name="com.example.swolemates.Matching"
         android:label="fragment_matching"
-        tools:layout="@layout/fragment_matching" />
+        tools:layout="@layout/fragment_matching" >
+        <action
+            android:id="@+id/action_matching_to_profileScreen"
+            app:destination="@id/profileScreen" />
+    </fragment>
     <fragment
         android:id="@+id/profileScreen"
         android:name="com.example.swolemates.ProfileScreen"
@@ -44,6 +48,9 @@
         <action
             android:id="@+id/action_loginFragment_to_profileEditor"
             app:destination="@id/profileEditor" />
+        <action
+            android:id="@+id/action_loginFragment_to_matching"
+            app:destination="@id/matching" />
     </fragment>
     <fragment
         android:id="@+id/welcomePage"

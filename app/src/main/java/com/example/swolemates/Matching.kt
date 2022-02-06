@@ -42,6 +42,10 @@ class ForumPostFragment : Fragment() {
         adapter.setLocations(potentionalMatches)
 
         initArray(potentionalMatches)
+
+        view.findViewById<Button>(R.id.to_profile).setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_matching_to_profileScreen)
+        }
     }
     private fun initArray(myDataset: MutableList<User>){
         myDataset.clear()
