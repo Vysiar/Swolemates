@@ -1,8 +1,8 @@
 package com.example.swolemates
 
-enum class Gender {
-    MALE,
-    FEMALE,
-    OTHER,
-    PREFER_NOT_TO_SAY
+enum class Gender (val string: String){
+    MALE("Male"),
+    FEMALE("Female"),
+    OTHER("Other"),
+    PREFER_NOT_TO_SAY("Prefer not to say");
 }
