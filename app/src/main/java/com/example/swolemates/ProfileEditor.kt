@@ -4,16 +4,24 @@ package com.example.swolemates
 import android.content.Intent
 import android.os.Bundle
 import android.app.Activity
+import android.os.Parcel
+import android.os.Parcelable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ListAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.swolemates.databinding.FragmentProfileEditorBinding
+import java.util.ArrayList
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -26,7 +34,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ProfileEditor.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProfileEditor : Fragment() {
+class ProfileEditor() : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,6 +43,14 @@ class ProfileEditor : Fragment() {
     private lateinit var model: SwoleViewModel
     lateinit var user: User
 
+    private lateinit var recyclerView: RecyclerView
+//    val potentionalMatches = ArrayList<User>()
+    val adapter = ListAdapter()
+
+    constructor(parcel: Parcel) : this() {
+        param1 = parcel.readString()
+        param2 = parcel.readString()
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,8 +76,16 @@ class ProfileEditor : Fragment() {
             processSaveAndContClick(user, binding)
         }
 
+        binding.addActivityButton.setOnClickListener(){
+            processAddIntrestClick(user,binding)
+        }
 
+        recyclerView = binding.Activities
+        recyclerView.layoutManager = LinearLayoutManager(binding.root.context, RecyclerView.VERTICAL, false)
+        recyclerView.adapter = adapter
+        adapter.setLocations(user.interests)
 
+//        initArray(user.interests)
 
 
     }
@@ -94,20 +118,86 @@ class ProfileEditor : Fragment() {
                 }
             }
     }
-}
+
+    inner class ListAdapter() :
+        RecyclerView.Adapter<ProfileEditor.ListAdapter.AddressViewHolder>() {
+        private var locations = emptyList<Interest>()
+
+        override fun getItemCount(): Int {
+            return locations.size
+        }
 
 
-private fun processSaveAndContClick(user: User, binding: FragmentProfileEditorBinding) {
-    user.name = binding.NameTextField.text.toString()
-    user.age = binding.AgeTextField.text.toString().toInt()
-    user.gender = binding.GenderSpinner.selectedItem as Gender
-    user.aboutMe = binding.AboutMeTextField.text.toString()
-    binding.root?.findNavController()?.navigate(R.id.action_profileEditor_to_preferences)
+        internal fun setLocations(locations: List<Interest>) {
+            this.locations = locations
+            notifyDataSetChanged()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
+
+
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.interest_activity_card, parent, false)
+
+//            v.findViewById<Spinner>(R.id.name).adapter = ArrayAdapter<ACTIVITY>(
+//                binding.root.context,
+//                android.R.layout.simple_spinner_dropdown_item,
+//                ACTIVITY.values()
+//            )
+
+
+            return AddressViewHolder(v)
+        }
+
+        override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
+
+
+            holder.view.findViewById<Spinner>(R.id.name).adapter = ArrayAdapter<ACTIVITY>(
+                binding.root.context,
+                android.R.layout.simple_spinner_dropdown_item,
+                ACTIVITY.values()
+            )
+
+
+
+
+//            holder.view.findViewById<TextView>(R.id.name).text =
+//                locations[position].name + ", " + locations[position].age
+//            holder.view.findViewById<TextView>(R.id.reply_text).text=locations[position].short_description
+
+            holder.itemView.setOnClickListener() {
+
+
+            }
+
+        }
+
+
+        inner class AddressViewHolder(val view: View) : RecyclerView.ViewHolder(view),
+            View.OnClickListener {
+            override fun onClick(view: View?) {
+                if (view != null) {
+
+                }
+            }
+        }
+
+
+    }
+
+
+    private fun processSaveAndContClick(user: User, binding: FragmentProfileEditorBinding) {
+        user.name = binding.NameTextField.text.toString()
+        user.age = binding.AgeTextField.text.toString().toInt()
+        user.gender = binding.GenderSpinner.selectedItem as Gender
+        user.aboutMe = binding.AboutMeTextField.text.toString()
+        binding.root?.findNavController()?.navigate(R.id.action_profileEditor_to_preferences)
 //    binding.testText.setText(user.gender.toString())
 
 
+    }
 
-
-
-
+    private fun processAddIntrestClick(user: User, binding: FragmentProfileEditorBinding){
+        user.interests.add(Interest(ACTIVITY.NOTSELECTED, -1))
+    }
 }

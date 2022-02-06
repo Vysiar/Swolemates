@@ -12,6 +12,7 @@ data class User(var userId: Int, var name: String, var age: Int, var location: S
 
     // Lists
     var matches = arrayListOf<Int>()
+    var interests = arrayListOf<Interest>()
 
     // Extra Descriptors
     var bio = ""
