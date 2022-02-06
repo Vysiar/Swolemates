@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-
-=======
->>>>>>> data invalid errors xd
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -36,23 +32,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> fix merge issues cleanup
-=======
->>>>>>> merge profile editor part 2 yuh
-=======
-=======
-
->>>>>>> c007320 (fix merge issues cleanup)
->>>>>>> ty alisa for future work xd
-=======
-
->>>>>>> alisa file yay
         app:layout_constraintTop_toBottomOf="@+id/UserIconEditButton">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -94,14 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> profile editor layout
-=======
-=======
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="360dp"
@@ -138,72 +110,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayout3"/>
 
->>>>>>> profile editor layout
-
-<<<<<<< HEAD
->>>>>>> merge profile editor part 2 yuh
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="360dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fix merge issues cleanup
-=======
->>>>>>> merge profile editor part 2 yuh
-=======
-=======
-
->>>>>>> c007320 (fix merge issues cleanup)
->>>>>>> ty alisa for future work xd
-        app:layout_constraintTop_toBottomOf="@id/ActivitySpinner">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/AboutMeTextField"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="top|start"
-            android:hint="About Me"
-            android:inputType="textMultiLine"
-            android:lines="20"
-            android:textAlignment="viewStart" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/SaveAndContinueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save and Continue"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="608dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout3"/>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-=======
-=======
->>>>>>> profile editor layout
-
-</androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> data invalid errors xd
-=======
-</androidx.constraintlayout.widget.ConstraintLayout>
-
->>>>>>> merge profile editor yuh
-=======
-</androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> alisa file yay
