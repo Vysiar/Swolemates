@@ -1,59 +1,98 @@
-package com.example.swolemates
+package com.example.towdow
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.swolemates.Gender
+import com.example.swolemates.R
+import com.example.swolemates.User
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import java.util.ArrayList
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Matching.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Matching : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ForumPostFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private lateinit var recyclerView: RecyclerView
+    val potentionalMatches = ArrayList<User>()
+    val adapter = ListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_matching, container, false)
+        val view = inflater.inflate(R.layout.fragment_matching, container, false)
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Matching.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Matching().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        recyclerView = view.findViewById(R.id.potential_matches)
+        recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recyclerView.adapter = adapter
+        adapter.setLocations(potentionalMatches)
+
+        initArray(potentionalMatches)
+    }
+    private fun initArray(myDataset: MutableList<User>){
+        myDataset.clear()
+
+        myDataset.add(User(111111, "Donald Pump", 24, "Blacksburg", Gender.MALE))
+        myDataset.add(User(222222, "Ben Bulkenson",21, "Blacksburg", Gender.MALE))
+        myDataset.add(User(333333, "Debby Deadlifts",20, "Blacksburg", Gender.FEMALE))
+        myDataset.add(User(444444, "Felicity Flash",23, "Blacksburg", Gender.FEMALE))
+        myDataset.add(User(555555, "Lady Macbuff",20, "Blacksburg", Gender.FEMALE))
+    }
+
+
+    inner class ListAdapter():
+        RecyclerView.Adapter<ListAdapter.AddressViewHolder>(){
+        private var locations = emptyList<User>()
+
+        override fun getItemCount(): Int {
+            return locations.size
+        }
+
+
+
+        internal fun setLocations(locations: List<User>) {
+            this.locations = locations
+            notifyDataSetChanged()
+        }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.matching_card, parent, false)
+            return AddressViewHolder(v)
+        }
+        override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
+
+//            holder.view.findViewById<TextView>(R.id.reply_user_text).text=locations[position].name
+//            holder.view.findViewById<TextView>(R.id.reply_text).text=locations[position].short_description
+
+            holder.itemView.setOnClickListener(){
+
+
+            }
+
+        }
+
+
+
+        inner class AddressViewHolder(val view: View): RecyclerView.ViewHolder(view), View.OnClickListener{
+            override fun onClick(view: View?){
+                if (view != null) {
+
                 }
             }
+        }
     }
 }
