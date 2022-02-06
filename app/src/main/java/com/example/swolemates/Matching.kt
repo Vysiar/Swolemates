@@ -97,11 +97,11 @@ class Matching : Fragment() {
             if (locations[position].matched){
                 if (locations[position].liked){
                     holder.view.findViewById<CardView>(R.id.cv).setCardBackgroundColor(Color.parseColor("#B5D9C3"))
-                    holder.view.findViewById<TextView>(R.id.status_text).text = "It's a match!"
+                    holder.view.findViewById<TextView>(R.id.status_text).text = "It's a match!  "
                 }else{
                     //  holder.view.setBackgroundColor(Color.RED)
                     //   locations.drop(position)
-                    holder.view.findViewById<TextView>(R.id.status_text).text = "Waiting for a response from " + locations[position].name
+                    holder.view.findViewById<TextView>(R.id.status_text).text = "Waiting for a response from " + locations[position].name + "  "
                 }
             }
             holder.itemView.setOnClickListener() {
@@ -118,11 +118,11 @@ class Matching : Fragment() {
             holder.view.findViewById<ImageButton>(R.id.check).setOnClickListener {
                 if (locations[position].liked){
                     holder.view.findViewById<CardView>(R.id.cv).setCardBackgroundColor(Color.parseColor("#B5D9C3"))
-                    holder.view.findViewById<TextView>(R.id.status_text).text = "It's a match!"
+                    holder.view.findViewById<TextView>(R.id.status_text).text = "It's a match!  "
                 }else{
                   //  holder.view.setBackgroundColor(Color.RED)
                    //   locations.drop(position)
-                    holder.view.findViewById<TextView>(R.id.status_text).text = "Waiting for a response from " + locations[position].name
+                    holder.view.findViewById<TextView>(R.id.status_text).text = "Waiting for a response from " + locations[position].name + "  "
                 }
 
                 locations[position].matched = true
