@@ -1,11 +1,12 @@
 package com.example.swolemates
 
-data class Preference(var minExperience: Int, var maxExperience: Int, var individual: Boolean,
-var group: Boolean, var minAge: Int, var maxAge: Int) {
+import android.app.Activity
 
-    var activity = Activities
+
+data class Preference(var minExperience: Int, var maxExperience: Int, var individual: Boolean,
+                      var group: Boolean, var minAge: Int, var maxAge: Int,
+                      var activity: ACTIVITY) {
 
     var genderSet = mutableSetOf<Gender>()
-
 
 }

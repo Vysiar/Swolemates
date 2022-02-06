@@ -1,6 +1,6 @@
 package com.example.swolemates
 
-enum class Activities {
+enum class ACTIVITY {
     TENNIS,
     WEIGHTLIFTING,
     RUNNING,
@@ -18,4 +18,5 @@ enum class Activities {
     BADMINTON,
     PINGPONG,
     DANCING
+
 }
