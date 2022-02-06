@@ -1,7 +1,7 @@
 package com.example.swolemates
 
 enum class ACTIVITY  (val string: String){
-    NOTSELECTED(""),
+//    NOTSELECTED(""),
     TENNIS("Tennis"),
     WEIGHTLIFTING("Weightlifting"),
     RUNNING("Running"),

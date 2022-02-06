@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_profileEditor_to_preferences"
             app:destination="@id/preferences" />
+        <action
+            android:id="@+id/action_profileEditor_to_matching"
+            app:destination="@id/matching" />
     </fragment>
     <fragment
         android:id="@+id/preferences"
