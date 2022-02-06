@@ -3,19 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/cardview.xml" value="0.33" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/fragment_login.xml" value="0.33" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/fragment_matching.xml" value="0.33" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/fragment_preferences.xml" value="0.17831813576494426" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/fragment_profile_editor.xml" value="0.21331521739130435" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/fragment_test.xml" value="0.21331521739130435" />
-        <entry key="..\:/Android Studio Projects/Swolemates/app/src/main/res/layout/fragment_welcome_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11775362318840579" />
         <entry key="app/src/main/res/layout/cardview.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.27118682861328125" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.45115203857421876" />
         <entry key="app/src/main/res/layout/fragment_login__signup.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_matching.xml" value="0.39948883056640627" />
+        <entry key="app/src/main/res/layout/fragment_matching.xml" value="0.20821075439453127" />
         <entry key="app/src/main/res/layout/fragment_preferences.xml" value="0.11775362318840579" />
         <entry key="app/src/main/res/layout/fragment_profile_editor.xml" value="0.3001907348632813" />
         <entry key="app/src/main/res/layout/fragment_profile_screen.xml" value="0.1" />
