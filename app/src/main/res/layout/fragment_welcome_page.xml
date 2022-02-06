@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="398dp"
         android:layout_height="249dp"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="7dp"
         android:contentDescription="@string/brandlogo"
@@ -28,7 +28,7 @@
         android:layout_marginStart="62dp"
         android:layout_marginTop="176dp"
         android:layout_marginEnd="62dp"
-        android:text="@string/sign_up"
+        android:text="Sign In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

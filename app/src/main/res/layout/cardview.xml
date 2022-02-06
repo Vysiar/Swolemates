@@ -5,18 +5,20 @@
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="410dp"
-    android:layout_height="220dp"
+    android:layout_height="260dp"
     android:layout_marginStart="1dp"
     android:layout_marginTop="3dp"
     android:backgroundTint="@color/not_matched"
-    app:cardCornerRadius="4dp"
-    app:contentPadding="2dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="6dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="218dp">
+        android:layout_height="225dp">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -58,6 +60,7 @@
             android:layout_height="128dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="211dp"
+            app:layout_constraintBottom_toTopOf="@+id/name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.055"
             app:layout_constraintStart_toStartOf="parent"
