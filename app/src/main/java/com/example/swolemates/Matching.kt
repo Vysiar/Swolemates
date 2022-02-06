@@ -1,5 +1,6 @@
 package com.example.towdow
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.swolemates.Gender
 import com.example.swolemates.R
 import com.example.swolemates.User
 
@@ -39,65 +41,18 @@ class ForumPostFragment : Fragment() {
         recyclerView.adapter = adapter
         adapter.setLocations(potentionalMatches)
 
-//        home = view.findViewById(R.id.home_home_button5)
-//        home.setOnClickListener {
-//            view.findNavController().navigate(R.id.action_forumPostFragment_to_homeFragment)
-//        }
-//        database.child("Forums").child(forumName).child("Categories").child(categoryName).child("Posts").addListenerForSingleValueEvent(object:
-//            ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                for (i in snapshot.children) {
-//                    val post: Post? = i.getValue(Post::class.java)
-//                    if (post != null) {
-//                        if (post.name.toString() == postName) {
-//                            view.findViewById<TextView>(R.id.username_text).text = post.username
-//                            view.findViewById<TextView>(R.id.post_description_text).text = post.description.toString()
-//                            break
-//                        }
-//                    }
-//                }
-//
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
-
-
-//        database.child("Forums").child(forumName).child("Categories").child(categoryName).child("Posts").child(postName).child("Replies").addListenerForSingleValueEvent(object:
-//            ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                for (i in snapshot.children) {
-//                    val reply: Reply? = i.getValue(Reply::class.java)
-//                    myTowDows.add(myTowDows.size, TowDowData(reply?.username.toString(), reply?.reply.toString()))
-//                }
-//
-//                recyclerView.adapter = adapter
-//                adapter.setLocations(myTowDows)
-//
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
-//
-//        view.findViewById<TextView>(R.id.post_title_text).text = postName
-//
-//        view.findViewById<Button>(R.id.reply_button).setOnClickListener {
-//
-//            val bundle = Bundle()
-//            bundle.putString("description", description)
-//            bundle.putString("post", postName)
-//            bundle.putString("category", categoryName)
-//            bundle.putString("forum", forumName)
-//            view.findNavController().navigate(R.id.action_forumPostFragment_to_replyFragment, bundle)
-//        }
-
+        initArray(potentionalMatches)
     }
+    private fun initArray(myDataset: MutableList<User>){
+        myDataset.clear()
+
+        myDataset.add(User(111111, "Donald Pump", 24, "Blacksburg", Gender.MALE))
+        myDataset.add(User(222222, "Ben Bulkenson",21, "Blacksburg", Gender.MALE))
+        myDataset.add(User(333333, "Debby Deadlifts",20, "Blacksburg", Gender.FEMALE))
+        myDataset.add(User(444444, "Felicity Flash",23, "Blacksburg", Gender.FEMALE))
+        myDataset.add(User(555555, "Lady Macbuff",20, "Blacksburg", Gender.FEMALE))
+    }
+
 
     inner class ListAdapter():
         RecyclerView.Adapter<ListAdapter.AddressViewHolder>(){
@@ -115,13 +70,13 @@ class ForumPostFragment : Fragment() {
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
             val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.matching, parent, false)
+                .inflate(R.layout.matching_card, parent, false)
             return AddressViewHolder(v)
         }
         override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
 
-            holder.view.findViewById<TextView>(R.id.reply_user_text).text=locations[position].name
-            holder.view.findViewById<TextView>(R.id.reply_text).text=locations[position].short_description
+//            holder.view.findViewById<TextView>(R.id.reply_user_text).text=locations[position].name
+//            holder.view.findViewById<TextView>(R.id.reply_text).text=locations[position].short_description
 
             holder.itemView.setOnClickListener(){
 
