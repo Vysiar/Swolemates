@@ -10,10 +10,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -76,14 +73,16 @@ class ProfileEditor() : Fragment() {
             processSaveAndContClick(user, binding)
         }
 
-        binding.addActivityButton.setOnClickListener(){
-            processAddIntrestClick(user,binding)
-        }
+
 
         recyclerView = binding.Activities
         recyclerView.layoutManager = LinearLayoutManager(binding.root.context, RecyclerView.VERTICAL, false)
         recyclerView.adapter = adapter
         adapter.setLocations(user.interests)
+
+        binding.addActivityButton.setOnClickListener(){
+            processAddIntrestClick(user,binding, adapter)
+        }
 
 //        initArray(user.interests)
 
@@ -151,8 +150,8 @@ class ProfileEditor() : Fragment() {
 
         override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
 
-
-            holder.view.findViewById<Spinner>(R.id.name).adapter = ArrayAdapter<ACTIVITY>(
+//
+            holder.view.findViewById<Spinner>(R.id.PrefSpinner).adapter = ArrayAdapter<ACTIVITY>(
                 binding.root.context,
                 android.R.layout.simple_spinner_dropdown_item,
                 ACTIVITY.values()
@@ -197,7 +196,9 @@ class ProfileEditor() : Fragment() {
 
     }
 
-    private fun processAddIntrestClick(user: User, binding: FragmentProfileEditorBinding){
-        user.interests.add(Interest(ACTIVITY.NOTSELECTED, -1))
+    private fun processAddIntrestClick(user: User, binding: FragmentProfileEditorBinding, adapter: ProfileEditor.ListAdapter){
+        user.interests.add(Interest(ACTIVITY.TENNIS, -1))
+        adapter.notifyItemInserted(user.interests.size-1);
+
     }
 }
