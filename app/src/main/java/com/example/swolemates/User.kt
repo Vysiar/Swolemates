@@ -4,7 +4,7 @@ import java.io.Serializable
 
 // General initialization of the data class, will need to create more constructors if needed
 data class User(var userId: Int, var name: String, var age: Int, var location: String,
-                var gender: Gender) : Serializable{
+                var gender: Gender, var liked: Boolean, var matched: Boolean) : Serializable{
 
     // Sets
     var likeSet = mutableSetOf<Int>()
