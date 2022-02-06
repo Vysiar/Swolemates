@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/welcomePage">
 
     <fragment
         android:id="@+id/profileEditor"
@@ -37,15 +37,6 @@
         android:label="fragment_profile_screen"
         tools:layout="@layout/fragment_profile_screen" />
     <fragment
-        android:id="@+id/welcomePage"
-        android:name="com.example.swolemates.WelcomePage"
-        android:label="fragment_welcome_page"
-        tools:layout="@layout/fragment_welcome_page" >
-        <action
-            android:id="@+id/action_welcomePage_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.swolemates.LoginFragment"
         android:label="fragment_login"
@@ -53,5 +44,14 @@
         <action
             android:id="@+id/action_loginFragment_to_profileEditor"
             app:destination="@id/profileEditor" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomePage"
+        android:name="com.example.swolemates.WelcomePage"
+        android:label="fragment_welcome_page"
+        tools:layout="@layout/fragment_welcome_page" >
+        <action
+            android:id="@+id/action_welcomePage_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
