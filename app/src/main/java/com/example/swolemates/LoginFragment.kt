@@ -20,6 +20,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class LoginFragment : Fragment() {
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,8 +28,8 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         view.findViewById<Button>(R.id.signup).setOnClickListener {
-          //  view?.findNavController()?.navigate(R.id.action_loginFragment_to_profileEditor)
-            view?.findNavController()?.navigate(R.id.action_loginFragment_to_matching)
+            view?.findNavController()?.navigate(R.id.action_loginFragment_to_profileEditor)
+//            view?.findNavController()?.navigate(R.id.action_loginFragment_to_matching)
         }
         return view
     }
