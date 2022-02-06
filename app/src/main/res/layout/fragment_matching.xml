@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/darker_mint"
-        android:text="Potential Matches"
+        android:text="Find Your SwoleMate"
         android:textColor="#E6E4E4"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/to_profile"
