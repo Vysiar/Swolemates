@@ -26,7 +26,7 @@ class LoginFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-        view.findViewById<Button>(R.id.signup_button).setOnClickListener {
+        view.findViewById<Button>(R.id.signup).setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_loginFragment_to_profileEditor)
         }
         return view

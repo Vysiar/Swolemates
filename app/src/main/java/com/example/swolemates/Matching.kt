@@ -1,59 +1,143 @@
-package com.example.swolemates
+package com.example.towdow
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.swolemates.R
+import com.example.swolemates.User
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import java.util.ArrayList
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Matching.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Matching : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ForumPostFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private lateinit var recyclerView: RecyclerView
+    val potentionalMatches = ArrayList<User>()
+    val adapter = ListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_matching, container, false)
+        val view = inflater.inflate(R.layout.fragment_matching, container, false)
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Matching.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Matching().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        recyclerView = view.findViewById(R.id.potential_matches)
+        recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recyclerView.adapter = adapter
+        adapter.setLocations(potentionalMatches)
+
+//        home = view.findViewById(R.id.home_home_button5)
+//        home.setOnClickListener {
+//            view.findNavController().navigate(R.id.action_forumPostFragment_to_homeFragment)
+//        }
+//        database.child("Forums").child(forumName).child("Categories").child(categoryName).child("Posts").addListenerForSingleValueEvent(object:
+//            ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (i in snapshot.children) {
+//                    val post: Post? = i.getValue(Post::class.java)
+//                    if (post != null) {
+//                        if (post.name.toString() == postName) {
+//                            view.findViewById<TextView>(R.id.username_text).text = post.username
+//                            view.findViewById<TextView>(R.id.post_description_text).text = post.description.toString()
+//                            break
+//                        }
+//                    }
+//                }
+//
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+
+
+//        database.child("Forums").child(forumName).child("Categories").child(categoryName).child("Posts").child(postName).child("Replies").addListenerForSingleValueEvent(object:
+//            ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (i in snapshot.children) {
+//                    val reply: Reply? = i.getValue(Reply::class.java)
+//                    myTowDows.add(myTowDows.size, TowDowData(reply?.username.toString(), reply?.reply.toString()))
+//                }
+//
+//                recyclerView.adapter = adapter
+//                adapter.setLocations(myTowDows)
+//
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+//
+//        view.findViewById<TextView>(R.id.post_title_text).text = postName
+//
+//        view.findViewById<Button>(R.id.reply_button).setOnClickListener {
+//
+//            val bundle = Bundle()
+//            bundle.putString("description", description)
+//            bundle.putString("post", postName)
+//            bundle.putString("category", categoryName)
+//            bundle.putString("forum", forumName)
+//            view.findNavController().navigate(R.id.action_forumPostFragment_to_replyFragment, bundle)
+//        }
+
+    }
+
+    inner class ListAdapter():
+        RecyclerView.Adapter<ListAdapter.AddressViewHolder>(){
+        private var locations = emptyList<User>()
+
+        override fun getItemCount(): Int {
+            return locations.size
+        }
+
+
+
+        internal fun setLocations(locations: List<User>) {
+            this.locations = locations
+            notifyDataSetChanged()
+        }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.matching, parent, false)
+            return AddressViewHolder(v)
+        }
+        override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
+
+            holder.view.findViewById<TextView>(R.id.reply_user_text).text=locations[position].name
+            holder.view.findViewById<TextView>(R.id.reply_text).text=locations[position].short_description
+
+            holder.itemView.setOnClickListener(){
+
+
+            }
+
+        }
+
+
+
+        inner class AddressViewHolder(val view: View): RecyclerView.ViewHolder(view), View.OnClickListener{
+            override fun onClick(view: View?){
+                if (view != null) {
+
                 }
             }
+        }
     }
 }
