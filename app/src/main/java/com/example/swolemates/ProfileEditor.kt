@@ -1,19 +1,18 @@
 package com.example.swolemates
 
 
-import android.content.res.ColorStateList
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.app.Activity
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import androidx.core.view.children
-import androidx.core.view.get
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import com.example.swolemates.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.swolemates.databinding.FragmentProfileEditorBinding
 
 
@@ -33,6 +32,9 @@ class ProfileEditor : Fragment() {
     private var param2: String? = null
     lateinit var binding: FragmentProfileEditorBinding
 
+    private lateinit var model: SwoleViewModel
+    lateinit var user: User
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +44,21 @@ class ProfileEditor : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
         binding = FragmentProfileEditorBinding.inflate(layoutInflater)
-//        val view = binding.root
+        val view = binding.root
+
+        model = ViewModelProvider(this.requireActivity()).get(SwoleViewModel::class.java)
+        user = model.user
+
+
+        binding.GenderSpinner.adapter = ArrayAdapter<Gender>(
+            view.context,
+            android.R.layout.simple_spinner_dropdown_item,
+            Gender.values()
+        )
+
+        binding.SaveAndContinueButton.setOnClickListener() {
+            processSaveAndContClick(user, binding)
+        }
 
 
 
@@ -55,7 +71,8 @@ class ProfileEditor : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_editor, container, false)
+        return binding.root
+//        return inflater.inflate(R.layout.fragment_profile_editor, container, false)
     }
 
     companion object {
@@ -77,4 +94,20 @@ class ProfileEditor : Fragment() {
                 }
             }
     }
+}
+
+
+private fun processSaveAndContClick(user: User, binding: FragmentProfileEditorBinding) {
+    user.name = binding.NameTextField.text.toString()
+    user.age = binding.AgeTextField.text.toString().toInt()
+    user.gender = binding.GenderSpinner.selectedItem as Gender
+    user.aboutMe = binding.AboutMeTextField.text.toString()
+    binding.root?.findNavController()?.navigate(R.id.action_profileEditor_to_preferences)
+//    binding.testText.setText(user.gender.toString())
+
+
+
+
+
+
 }
