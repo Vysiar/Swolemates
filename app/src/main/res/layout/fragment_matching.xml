@@ -51,7 +51,7 @@
         android:backgroundTint="@color/darker_mint"
         android:text="Find Your SwoleMate"
         android:textColor="#E6E4E4"
-        android:textSize="30sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toStartOf="@+id/to_profile"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
