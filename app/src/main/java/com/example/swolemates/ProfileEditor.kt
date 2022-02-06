@@ -191,7 +191,7 @@ class ProfileEditor() : Fragment() {
         user.age = binding.AgeTextField.text.toString().toInt()
         user.gender = binding.GenderSpinner.selectedItem as Gender
         user.aboutMe = binding.AboutMeTextField.text.toString()
-        binding.root?.findNavController()?.navigate(R.id.action_profileEditor_to_preferences)
+        binding.root?.findNavController()?.navigate(R.id.action_profileEditor_to_matching)
 //    binding.testText.setText(user.gender.toString())
 
 
