@@ -26,7 +26,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="4dp"
-        android:text="TextView"
+        android:text="Ben Bulkenson"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/age"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,11 +39,23 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="64dp"
-        android:text="TextView"
+        android:text="22"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+
+    <TextView
+        android:id="@+id/bioText"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="I love da gym\n💪💪"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <TextView
         android:id="@+id/location"
@@ -52,11 +64,35 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="128dp"
-        android:text="TextView"
+        android:text="Blacksburg, VA"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/age" />
+
+    <TextView
+        android:id="@+id/InterestsHeader"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Interests"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bioText" />
+
+    <TextView
+        android:id="@+id/AboutMeHeader"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="About Me"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InterestsHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
