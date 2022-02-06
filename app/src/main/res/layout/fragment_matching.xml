@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="411dp"
         android:layout_height="80dp"
-        android:background="@color/mint"
+        android:background="@color/purple_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +22,8 @@
         android:id="@+id/potential_matches"
         android:layout_width="411dp"
         android:layout_height="572dp"
+        android:background="@color/white"
+        android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

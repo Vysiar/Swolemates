@@ -1,4 +1,4 @@
-package com.example.towdow
+package com.example.swolemates
 
 import android.graphics.Color
 import android.os.Bundle
@@ -18,7 +18,7 @@ import com.example.swolemates.User
 
 import java.util.ArrayList
 
-class ForumPostFragment : Fragment() {
+class Matching : Fragment() {
 
 
     private lateinit var recyclerView: RecyclerView
@@ -43,7 +43,7 @@ class ForumPostFragment : Fragment() {
 
         initArray(potentionalMatches)
 
-        view.findViewById<Button>(R.id.to_profile).setOnClickListener {
+        view.findViewById<ImageButton>(R.id.to_profile).setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_matching_to_profileScreen)
         }
     }
@@ -74,12 +74,12 @@ class ForumPostFragment : Fragment() {
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
             val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.matching_card, parent, false)
+                .inflate(R.layout.cardview, parent, false)
             return AddressViewHolder(v)
         }
         override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
 
-//            holder.view.findViewById<TextView>(R.id.reply_user_text).text=locations[position].name
+            holder.view.findViewById<TextView>(R.id.name).text=locations[position].name + ", " + locations[position].age
 //            holder.view.findViewById<TextView>(R.id.reply_text).text=locations[position].short_description
 
             holder.itemView.setOnClickListener(){
